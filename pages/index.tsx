@@ -73,9 +73,9 @@ export default function Home() {
             <span className="hidden group-hover:block absolute z-10 rounded shadow-lg p-1 bg-gray-100 bg-opacity-50 backdrop-filter backdrop-blur mt-[-3.6rem]">Including weeknds and holidays</span>
           </a>
           <br />
-          <div className="inline-flex rounded-md bg-green-200 bg-opacity-50 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
-            <div className={"rounded-md p-1 font-medium hover:bg-gray-300 hover:ring-2 transition cursor-pointer hover:bg-opacity-80 backdrop-filter backdrop-blur " + (lowerLunch ? "bg-gray-300 bg-opacity-70" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
-            <div className={"rounded-md p-1 font-medium hover:bg-gray-300 hover:ring-2 transition cursor-pointer hover:bg-opacity-80 backdrop-filter backdrop-blur " + (!lowerLunch ? "bg-gray-300 bg-opacity-70" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
+          <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
+            <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
+            <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
           </div>
           
           {blue(lowerLunch)}
