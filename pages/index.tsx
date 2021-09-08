@@ -60,7 +60,7 @@ function blue(ll: boolean) {
 }
 
 function f60MM() {
-  const blue = ["9:00 - 10:05|4", "10:15 - 11:15|Founders", "11:15 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"]
+  const blue = ["9:00 - 10:05|4", "10:05 - 10:15|Walkathon HR", "10:25 - 11:25|Founders", "11:25 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"]
   var output = []
   blue.forEach(element => {
     const sp = element.split("|")
