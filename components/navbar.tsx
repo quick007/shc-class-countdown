@@ -1,10 +1,14 @@
 import nightwind from "nightwind/helper"
 import Link from "next/link"
+import Head from "next/head"
 
 export default function navbar() {
     return (
         <>
-
+            <Head>
+                <title>SHC Clock</title>
+                <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
+            </Head>
             <nav className="h-14 bg-gray-300 shadow-md bg-opacity-50 backdrop-filter backdrop-blur sticky top-0 z-40 text-gray-900">
                 <div className="max-w-screen-xl mx-auto flex flex-grow h-14 justify-between">
                     <Link href="/">

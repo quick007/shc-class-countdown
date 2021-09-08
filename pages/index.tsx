@@ -59,6 +59,26 @@ function blue(ll: boolean) {
   return (output);
 }
 
+function f60MM() {
+  const blue = ["9:00 - 10:05|4", "10:15 - 11:15|Founders", "11:15 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"]
+  var output = []
+  blue.forEach(element => {
+    const sp = element.split("|")
+    const block = sp.pop()
+    output.push(
+      <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
+        <div className="flex">
+          <h2 className="font-semibold">Block {block}:</h2> 
+          {sp.shift()}
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    )
+  })
+  return output;
+}
 
 export default function Home() {
   const [lowerLunch, setLowerLunch] = useState(true)
@@ -77,8 +97,9 @@ export default function Home() {
             <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
             <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
           </div>
-          
-          {blue(lowerLunch)}
+          {f60MM()}
+          {//blue(lowerLunch)
+          }
         </div>
         <div className="bg-red-50 p-2">Footer</div>
       </div>
