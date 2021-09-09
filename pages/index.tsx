@@ -97,8 +97,9 @@ export default function Home() {
             <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
             <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
           </div>
-          {f60MM()}
-          {//blue(lowerLunch)
+          {//f60MM()
+          }
+          {blue(lowerLunch)
           }
         </div>
         <div className="bg-red-50 p-2">Footer</div>
