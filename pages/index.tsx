@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import Timer from "../components/time"
 import schedule from "../components/schedules"
 
-import Navbar from "../components/navbar"
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 const d = new Date();
 
@@ -73,7 +74,7 @@ function green(ll: boolean) {
             {sp.shift()}
           </div>
           <div>
-          {block == "1" ? <div className="rounded bg-blue-500 px-1 font-medium text-gray-50 nightwind-prevent">Announcements</div> : ""}
+          {block == "4" ? <div className="rounded bg-blue-500 px-1 font-medium text-gray-50 nightwind-prevent">Announcements</div> : ""}
           </div>
         </div>
       )
@@ -129,24 +130,26 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
         <Navbar />
         <div className="flex-1 max-w-screen-xl mx-auto w-full my-10">
-          <h1 className="text-5xl font-semibold"><Timer /></h1>
-          <a href="https://www.shcp.edu/academics/academic-calendar" className="text-sm font-medium group cursor-pointer">
-            ~{toSchoolEnd()} days until the end of school
-            <span className="hidden group-hover:block absolute z-10 rounded shadow-lg p-1 bg-gray-100 bg-opacity-50 backdrop-filter backdrop-blur mt-[-3.6rem]">Including weeknds and holidays</span>
-          </a>
-          <br />
-          <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
-            <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
-            <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
+          <div className="mx-5">
+            <h1 className="text-5xl font-semibold"><Timer /></h1>
+            <a href="https://www.shcp.edu/academics/academic-calendar" className="text-sm font-medium group cursor-pointer">
+              ~{toSchoolEnd()} days until the end of school
+              <span className="hidden group-hover:block absolute z-10 rounded shadow-lg p-1 bg-gray-100 bg-opacity-50 backdrop-filter backdrop-blur mt-[-3.6rem]">Including weeknds and holidays</span>
+            </a>
+            <br />
+            <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
+              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
+              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
+            </div>
+            {//f60MM()
+            }
+            {//blue(lowerLunch)
+            }
+            {green(lowerLunch)
+            }
           </div>
-          {//f60MM()
-          }
-          {//blue(lowerLunch)
-          }
-          {green(lowerLunch)
-          }
         </div>
-        <div className="bg-red-50 p-2">Footer</div>
+        <Footer />
       </div>
     </>
   )
