@@ -65,7 +65,7 @@ function green(ll: boolean) {
   blue.forEach(element => {
     const sp = element.split("|")
     const block = sp.pop()
-    if (!(block == "2")) {
+    if (!(block == "5")) {
       output.push(
         <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
           <div className="flex">
