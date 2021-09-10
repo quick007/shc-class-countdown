@@ -59,6 +59,48 @@ function blue(ll: boolean) {
   return (output);
 }
 
+function green(ll: boolean) {
+  const blue = ["8:00 - 9:15|8", "9:30 - 10:55|4", "11:50 - 1:05?11:05-12:20|5", "1:15 - 2:30|6"]
+  var output = []
+  blue.forEach(element => {
+    const sp = element.split("|")
+    const block = sp.pop()
+    if (!(block == "2")) {
+      output.push(
+        <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
+          <div className="flex">
+            <h2 className="font-semibold">Block {block}:</h2> 
+            {sp.shift()}
+          </div>
+          <div>
+          {block == "1" ? <div className="rounded bg-blue-500 px-1 font-medium text-gray-50 nightwind-prevent">Announcements</div> : ""}
+          </div>
+        </div>
+      )
+    } else {
+      if (ll == true) {
+        var time = sp.shift().split("?").shift()
+      } else {
+        var time = sp.shift().split("?").pop()
+      }
+        output.push(
+          <>
+            {ll ? <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"><h2 className="font-semibold">Lunch</h2></div> : ""}
+            <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
+              <div className="flex">
+                <h2 className="font-semibold">Block {block}:</h2> 
+                {time}
+              </div>
+            </div>
+            {ll ? "" : <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"><h2 className="font-semibold">Lunch</h2></div>}
+          </>
+        )
+      
+    }
+  })
+  return (output);
+}
+
 function f60MM() {
   const blue = ["9:00 - 10:05|4", "10:05 - 10:15|Walkathon HR", "10:25 - 11:25|Founders", "11:25 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"]
   var output = []
@@ -99,7 +141,9 @@ export default function Home() {
           </div>
           {//f60MM()
           }
-          {blue(lowerLunch)
+          {//blue(lowerLunch)
+          }
+          {green(lowerLunch)
           }
         </div>
         <div className="bg-red-50 p-2">Footer</div>
