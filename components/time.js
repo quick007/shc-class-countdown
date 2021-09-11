@@ -7,6 +7,7 @@ function theTime() {
     var am = false;
   } else if (d.getHours() == 12) {
     var am = false;
+    var hrs = (d.getHours())
   } else {
     var hrs = (d.getHours())
     var am = true;
