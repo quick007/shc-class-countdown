@@ -5,6 +5,7 @@ import schedule from "../components/schedules"
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import End from "../components/end"
 
 const d = new Date();
 
@@ -136,6 +137,11 @@ export default function Home() {
               ~{toSchoolEnd()} days until the end of school
               <span className="hidden group-hover:block absolute z-10 rounded shadow-lg p-1 bg-gray-100 bg-opacity-50 backdrop-filter backdrop-blur mt-[-3.6rem]">Including weeknds and holidays</span>
             </a>
+            <span className="text-sm font-medium"><End /></span>
+            <div className="rounded bg-opacity-5 backdrop-filter backdrop-blur bg-yellow-500 px-4 py-2 mt-2 border border-yellow-400 border-opacity-60 flex-col lg:flex-row flex items-center justify-center lg:justify-start">
+              <h2 className="rounded bg-yellow-400 inline-flex nightwind-prevent px-1 font-medium text-black">Note: </h2>
+              <p className="lg:ml-2">Make sure to reload me to get the latest schedule! (I cache in your browser)</p>
+            </div>
             <br />
             <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
               <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
