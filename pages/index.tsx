@@ -143,9 +143,9 @@ export default function Home() {
             </div>
             {//f60MM()
             }
-            {//blue(lowerLunch)
+            {blue(lowerLunch)
             }
-            {green(lowerLunch)
+            {//green(lowerLunch)
             }
           </div>
         </div>
