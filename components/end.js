@@ -63,7 +63,7 @@ function timeUntilEnd() {
     const back = [];
     back.push(hrs - d.getHours() - 1);
     back.push(" hours and ")
-    back.push(mins - d.getMinutes() + 30);
+    back.push(mins - d.getMinutes() + 60);
     back.push(" minutes until the end of school")
     return back;
   } else {
