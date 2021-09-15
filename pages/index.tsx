@@ -124,6 +124,27 @@ function f60MM() {
   return output;
 }
 
+function f30() {
+  const blue = ["9:00 - 10:15|1", "10:25 - 11:40|2", "11:50 - 12:20|Founders", "12:20 - 1:05|Lunch", "1:15 - 2:30|3"]
+  var output = []
+  blue.forEach(element => {
+    const sp = element.split("|")
+    const block = sp.pop()
+    output.push(
+      <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
+        <div className="flex">
+          <h2 className="font-semibold">Block {block}:</h2> 
+          {sp.shift()}
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    )
+  })
+  return output;
+}
+
 export default function Home() {
   const [lowerLunch, setLowerLunch] = useState(true)
   return (
@@ -151,7 +172,7 @@ export default function Home() {
             }
             {//blue(lowerLunch)
             }
-            {green(lowerLunch)
+            {//green(lowerLunch)
             }
           </div>
         </div>
