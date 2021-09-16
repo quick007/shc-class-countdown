@@ -9,9 +9,8 @@ import Footer from "../components/footer";
 import End from "../components/end"
 
 import Green from "../schedules/green";
-//import Blue from "../schedules/blue";
+import Blue from "../schedules/blue";
 import F30 from "../schedules/green";
-import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 const d = new Date();
 
@@ -23,48 +22,6 @@ function toSchoolEnd() {
   }  
   var one_day=1000*60*60*24;
   return Math.ceil((end.getTime()-d.getTime())/(one_day))
-}
-
-function blue(ll: boolean) {
-  const blue = ["8:00 - 9:15|7", "9:30 - 10:55|1", "11:50 - 1:05?11:05-12:20|2", "1:15 - 2:30|3"]
-  var output = []
-  blue.forEach(element => {
-    const sp = element.split("|")
-    const block = sp.pop()
-    if (!(block == "2")) {
-      output.push(
-        <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
-          <div className="flex">
-            <h2 className="font-semibold">Block {block}:</h2> 
-            {sp.shift()}
-          </div>
-          <div>
-          {block == "1" ? <div className="rounded bg-blue-500 px-1 font-medium text-gray-50 nightwind-prevent">Announcements</div> : ""}
-          </div>
-        </div>
-      )
-    } else {
-      if (ll == true) {
-        var time = sp.shift().split("?").shift()
-      } else {
-        var time = sp.shift().split("?").pop()
-      }
-        output.push(
-          <>
-            {ll ? <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"><h2 className="font-semibold">Lunch</h2></div> : ""}
-            <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"> 
-              <div className="flex">
-                <h2 className="font-semibold">Block {block}:</h2> 
-                {time}
-              </div>
-            </div>
-            {ll ? "" : <div className="rounded-md bg-gray-200 p-4 my-4 flex justify-between"><h2 className="font-semibold">Lunch</h2></div>}
-          </>
-        )
-      
-    }
-  })
-  return (output);
 }
 
 
@@ -91,11 +48,6 @@ function f60MM() {
 }
 
 
-function today() {
-  const day = d.getDate();
-  const month = d.getMonth() + 1;
-  return `M${month}D${day}`
-}
 
 function daily(ll: boolean) {
   const { data, error } = useSWR("/api/daily", fetcher);
@@ -131,15 +83,17 @@ function daily(ll: boolean) {
       </div>
     )
   }
-  const date = month + "-" + "14" 
+  const date = month + "-" + day
 
-  //if (data[date] == "Green") {
-    return (
-      
-      <Green ll={ll} />
-      
-    )
-  //}
+  if (data[date] == "Green") {
+    return <Green ll={ll} />;
+  }
+  if (data[date] == "Blue") {
+    return <Blue ll={ll} />;
+  }
+  if (data[date] == "F30MM") {
+    return f60MM();
+  }
 }
 
 export default function Home() {
