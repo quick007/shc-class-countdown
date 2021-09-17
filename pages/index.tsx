@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import useSWR from "swr";
 
-import Timer from "../components/time"
-import fetcher from "../schedules/fetcher"
+import Timer from "../components/time";
+import fetcher from "../lib/fetcher";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import End from "../components/end"
@@ -154,7 +154,7 @@ export default function Home() {
               <p className="lg:ml-2">I now change my schedule at midnight (based on your computers time), API documentation coming soon!</p>
             </div>
             <br />
-            <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2">
+            <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2 select-none">
               <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
               <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
             </div>
