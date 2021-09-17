@@ -139,6 +139,9 @@ export default function Home() {
   const [lowerLunch, setLowerLunch] = useState(true)
   return (
     <>
+      <Head>
+        <link rel='manifest' href='/manifest.json' />
+      </Head>
       <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
         <Navbar />
         <div className="flex-1 max-w-screen-xl mx-auto w-full my-10">
