@@ -141,7 +141,7 @@ export default function Home() {
   if (!cookies.lunch) {
     setCookie("lunch", true);
   }
-
+  const [lowerLunch, setLowerLunch] = useState(cookies.lunch);
   return (
     <>
       <Head>
@@ -163,11 +163,10 @@ export default function Home() {
             </div>
             <br />
             <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2 select-none">
-              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (cookies.lunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => {setCookie("lunch", true)}}>Lower Lunch</div>
-              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!cookies.lunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => {setCookie("lunch", false)}}>Upper Lunch</div>
+              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => {setLowerLunch(true); setCookie("lunch", true)}}>Lower Lunch</div>
+              <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => {setLowerLunch(false); setCookie("lunch", false)}}>Upper Lunch</div>
             </div>
-            {daily(cookies.lunch)}
-            {cookies.lunch}
+            {daily(lowerLunch)}
 
           </div>
         </div>
