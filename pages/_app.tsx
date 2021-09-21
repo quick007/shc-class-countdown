@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     <meta name="robots" content="index, follow" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="English" />
+    <meta name="theme-color" content="#080404" />
     <meta name="author" content="Lukas" />
 
     <meta name='application-name' content='SHC Clock' />
@@ -26,8 +27,8 @@ function MyApp({ Component, pageProps }) {
 
     <link rel='apple-touch-icon' href='/SHC-app.png' />
     {/*<link rel='apple-touch-icon' sizes='152x152' href='/icons/touch-icon-ipad.png' />
-    <link rel='apple-touch-icon' sizes='180x180' href='/icons/touch-icon-iphone-retina.png' />
-    <link rel='apple-touch-icon' sizes='167x167' href='/icons/touch-icon-ipad-retina.png' />*/}
+    <link rel='apple-touch-icon' sizes='180x180' href='/icons/touch-icon-iphone-retina.png' />*/}
+    <link rel='apple-touch-icon' sizes='192x192' href='/icons/shc-app-192' />
     <link rel='manifest' href='/manifest.json' />
     <link rel='mask-icon' href='/SHC-app.png' color='#18664f'/>
     <link rel='shortcut icon' href='/favicon.ico' />
