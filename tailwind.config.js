@@ -8,5 +8,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("nightwind")],
+  plugins: [require("nightwind"), require('@tailwindcss/typography'),],
 }
