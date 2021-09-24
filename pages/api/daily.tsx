@@ -12,7 +12,17 @@
  * Types of schedules: [1, 2, 3], [2, 3, 1], [3, 1, 2]
 **/
 
-export default function helloAPI(req, res) {
+export default function helloAPI(req: any, res: {
+		status: (arg0: number) => {
+			(): any; new(): any; json: {
+				(arg0: {
+					//september
+					"9/14": string; //month then date
+					"9/15": string; "9/16": string; "9/20": string; "9/21": string; "9/22": string; "9/23": string; "9/24": string; "9/28": string; "9/29": string; "9/30": string;
+				}): void; new(): any;
+			};
+		};
+	}) {
 	res.status(200).json(
 		{
 			//september

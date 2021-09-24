@@ -2,6 +2,9 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import useSWR from "swr";
 import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router'
+import Link from "next/link";
+
 
 import Timer from "../components/time";
 import fetcher from "../lib/fetcher";
@@ -28,13 +31,9 @@ function toSchoolEnd() {
   return Math.ceil((end.getTime()-d.getTime())/(one_day))
 }
 
-
-
-
-
-
-
 function daily(ll: boolean) {
+  const router = useRouter();
+  const { nextDay } = router.query;
   const { data, error } = useSWR("/api/daily", fetcher);
   const day = d.getDate();
   const month = d.getMonth() + 1;
@@ -68,8 +67,15 @@ function daily(ll: boolean) {
       </div>
     )
   }
-
-  const date = month + "/" + day
+  
+  let date: string;
+  if (nextDay == "true" && new Date(d.getFullYear(), month, 0).getDate() > day) {
+    date = month + "/" + (day + 1);
+  } else if (nextDay == "true") {
+    date = (month + 1) + "/1";
+  } else {
+    date = month + "/" + day;
+  }
 
   if (!data[date]) {
     return (
@@ -137,6 +143,8 @@ function daily(ll: boolean) {
 }
 
 export default function Home() {
+  const router = useRouter();
+  const { nextDay } = router.query;
   const [cookies, setCookie] = useCookies();
   if (!cookies.lunch) {
     setCookie("lunch", true);
@@ -161,13 +169,19 @@ export default function Home() {
               <h2 className="rounded bg-blue-400 inline-flex nightwind-prevent px-1 font-medium text-black">Info: </h2>
               <p className="lg:ml-2">I now change my schedule at midnight (based on your computers time), API documentation coming soon!</p>
             </div>
+            {nextDay ? <div className="rounded bg-opacity-5 backdrop-filter backdrop-blur bg-yellow-500 px-4 py-2 mt-2 border border-yellow-400 border-opacity-60 flex-col lg:flex-row flex items-center justify-center lg:justify-start">
+              <h2 className="rounded bg-yellow-400 inline-flex nightwind-prevent px-1 font-medium text-black">Warn: </h2>
+              <p className="lg:ml-2">This feature doesn't map classes correctly on founders days.</p>
+            </div> : "" }
             <br />
             <div className="inline-flex rounded-md bg-gradient-to-br from-green-200 to-green-300 dark:from-green-400 dark:to-green-500 backdrop-filter backdrop-blur p-1 mt-6 space-x-2 select-none">
               <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(true)}>Lower Lunch</div>
               <div className={"rounded-md p-1 font-medium hover:ring-2 transition cursor-pointer " + (!lowerLunch ? "bg-gray-300 bg-opacity-50" : "")} onClick={() => setLowerLunch(false)}>Upper Lunch</div>
             </div>
             {daily(lowerLunch)}
-            {cookies.lunch}
+            {//cookies.lunch
+            }
+            {nextDay ? (<Link href="/"><div className="font-semibold rounded px-4 py-2 bg-blue-500 inline-flex nightwind-prevent transition hover:filter hover:brightness-75 cursor-pointer">Back</div></Link>) : (<Link href="/?nextDay=true"><div className="font-semibold rounded px-4 py-2 bg-blue-500 inline-flex nightwind-prevent transition hover:filter hover:brightness-75 cursor-pointer">Tomorrow</div></Link>)}
           </div>
         </div>
         <Footer />
