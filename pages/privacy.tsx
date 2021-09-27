@@ -8,9 +8,9 @@ export default function privacy() {
 				<Navbar />
 				<div className="flex-1 max-w-screen-xl mx-auto w-full my-10 px-2 prose lg:prose-lg dark:text-gray-200">
 					<h1 className="dark:text-gray-300">Privacy Policy</h1>
-						This privacy policy ("policy") will help you understand how [name] ("us", "we", "our") uses and
-						protects the data you provide to us when you visit and use [website] ("website", "service").
-						We reserve the right to change this policy at any given time, of which you will be promptly
+						This privacy policy ("policy") will help you understand how SHC Clock ("us", "we", "our") uses and
+						protects the data you provide to us when you visit and use https://shc-clock.vercel.app ("website", "service").
+						We reserve the right to change this policy at any given time, of which you may be
 						updated. If you want to make sure that you are up to date with the latest changes, we advise
 						you to frequently visit this page.<br />
 						<h3 className="dark:text-gray-300">What User Data We Collect</h3>

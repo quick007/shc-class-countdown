@@ -134,7 +134,7 @@ function daily(ll: boolean) {
   }
   else {
     return (
-      <div className="rounded bg-opacity-5 backdrop-filter backdrop-blur bg-green-500 px-4 py-2 mt-6 border border-green-400 border-opacity-60 flex-col lg:flex-row flex items-center justify-center lg:justify-start">
+      <div className="mb-6 rounded bg-opacity-5 backdrop-filter backdrop-blur bg-green-500 px-4 py-2 mt-6 border border-green-400 border-opacity-60 flex-col lg:flex-row flex items-center justify-center lg:justify-start">
         <h2 className="rounded bg-green-400 inline-flex nightwind-prevent px-1 font-medium text-black">No class!</h2>
         <p className="lg:ml-2">Please make sure to check your schoology calender to confirm this</p>
       </div>
