@@ -1,4 +1,4 @@
-export default function blue(props: { ll: boolean, shType: Array<number> }) {
+export default function blue(props: { ll: boolean, shType: any }) {
     const founders = "9:00 - 10:05?10:15 - 11:20";
     const b1 = "9:00 - 10:05?10:15 - 11:20";
     const b2 = "11:50 - 1:05?11:05-12:20";

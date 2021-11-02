@@ -1,8 +1,8 @@
 import 'tailwindcss/tailwind.css'
-import nightwind from "nightwind/helper"
+import nightwind from "nightwind/helper";
 import Head from "next/head"
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: any) {
   <Head>
     <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
     <meta name="title" content="SHC Clock" />

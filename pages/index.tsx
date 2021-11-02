@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import useSWR from "swr";
-import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router'
 import Link from "next/link";
 
@@ -18,6 +17,7 @@ import F30 from "../schedules/f30";
 import F60BD from "../schedules/f60BD";
 import F60MM from "../schedules/f60MM";
 import FSplit from "../schedules/f30split";
+import f30 from '../schedules/f90';
 
 const d = new Date();
 
@@ -34,7 +34,7 @@ function toSchoolEnd() {
 function daily(ll: boolean) {
   const router = useRouter();
   const { nextDay } = router.query;
-  const { data, error } = useSWR("/api/daily", fetcher);
+  const { data, error }: any = useSWR("/api/daily", fetcher);
   const day = d.getDate();
   const month = d.getMonth() + 1;
   const M = "M";
@@ -145,10 +145,6 @@ function daily(ll: boolean) {
 export default function Home() {
   const router = useRouter();
   const { nextDay } = router.query;
-  const [cookies, setCookie] = useCookies();
-  if (!cookies.lunch) {
-    setCookie("lunch", true);
-  }
   const [lowerLunch, setLowerLunch] = useState(false);
   return (
     <>
@@ -199,8 +195,8 @@ export default function Home() {
  */
 
 function custom() {
-  const blue = ["9:00 - 10:05|4", "10:05 - 10:15|Walkathon HR", "10:25 - 11:25|Founders", "11:25 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"]
-  var output = []
+  const blue = ["9:00 - 10:05|4", "10:05 - 10:15|Walkathon HR", "10:25 - 11:25|Founders", "11:25 - 12:00|Lunch", "12:10 - 1:15|5", "1:25 - 2:30|6"];
+  var output: Array<any> = []
   blue.forEach(element => {
     const sp = element.split("|")
     const block = sp.pop()
